@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{595E79C9-00CB-DA2A-E5BC-8DD3394110A2}") = "VR Tourist", "Assembly-CSharp-firstpass.csproj", "{C8FEBE8D-E8A1-DDA1-2EAC-0205CC4FC9B7}"
+EndProject
+Project("{595E79C9-00CB-DA2A-E5BC-8DD3394110A2}") = "VR Tourist", "Assembly-CSharp.csproj", "{F71272CD-DFA1-91CA-ABA6-0494E56C9192}"
+EndProject
+Project("{595E79C9-00CB-DA2A-E5BC-8DD3394110A2}") = "VR Tourist", "Assembly-CSharp-Editor.csproj", "{B3A7B712-24D8-39D6-96B1-B68130A38A48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8FEBE8D-E8A1-DDA1-2EAC-0205CC4FC9B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FEBE8D-E8A1-DDA1-2EAC-0205CC4FC9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FEBE8D-E8A1-DDA1-2EAC-0205CC4FC9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FEBE8D-E8A1-DDA1-2EAC-0205CC4FC9B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F71272CD-DFA1-91CA-ABA6-0494E56C9192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F71272CD-DFA1-91CA-ABA6-0494E56C9192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F71272CD-DFA1-91CA-ABA6-0494E56C9192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F71272CD-DFA1-91CA-ABA6-0494E56C9192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A7B712-24D8-39D6-96B1-B68130A38A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A7B712-24D8-39D6-96B1-B68130A38A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A7B712-24D8-39D6-96B1-B68130A38A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A7B712-24D8-39D6-96B1-B68130A38A48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

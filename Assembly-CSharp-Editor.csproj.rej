@@ -1,0 +1,9 @@
+diff a/VR Urban Exploring/Assembly-CSharp-Editor.csproj b/VR Urban Exploring/Assembly-CSharp-Editor.csproj	(rejected hunks)
+@@ -110,6 +110,7 @@
+  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+  </Reference>
+  <Reference Include="Newtonsoft.Json">
++ <HintPath>E:/Rodrigo Borquez/VR Urban Exploring/VR Urban Exploring/Assets/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+  </Reference>
+  <Reference Include="Google.ProtocolBuffers">
+  <HintPath>E:/Rodrigo Borquez/VR Urban Exploring/VR Urban Exploring/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
