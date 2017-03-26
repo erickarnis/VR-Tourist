@@ -17,39 +17,19 @@ public class MenuScript : MonoBehaviour {
 	//the appropriate video.
 	void Update(){
 		id = PhotonNetwork.player.ID;
-		//Launch video 1, destroy signalling gameobject
-		if(GameObject.Find("video1(Clone)") != null){
-			int signal = (int) GameObject.Find("video1(Clone)").transform.position.x;
-			Debug.Log(signal + " vs " + id);
-			if(signal == 0 || signal == id){
-				srcMedia.Load ("video1.mp4");
+		//Launch video, destroy signalling gameobject
+		if(GameObject.Find("VideoMessage(Clone)") != null){
+			int message_id = (int) GameObject.Find("VideoMessage(Clone)").transform.position.x;
+			int message_video = (int) GameObject.Find("VideoMessage(Clone)").transform.position.y;
+			Debug.Log (message_id + " , " +  message_video);
+			string video = "/storage/emulated/0/VRTourist/video" + message_video + ".mp4";
+				Debug.Log(message_id + " vs " + id);
+			if(message_id == 0 || message_id == id){
+				srcMedia.Load (video);
 			}
-			Destroy(GameObject.Find("video1(Clone)"));
+			Destroy(GameObject.Find("VideoMessage(Clone)"));
 		}
-		//Launch video 2, destroy signalling gameobject
-		if(GameObject.Find("video2(Clone)") != null){
-			int signal = (int) GameObject.Find("video2(Clone)").transform.position.x;
-			if(signal == 0 || signal == id){
-				srcMedia.Load ("video2.mp4");
-			}
-			Destroy(GameObject.Find("video2(Clone)"));
-		}
-		//Launch video 3, destroy signalling gameobject
-		if(GameObject.Find("video3(Clone)") != null){
-			int signal = (int) GameObject.Find("video3(Clone)").transform.position.x;
-			if(signal == 0 || signal == id){
-				srcMedia.Load ("video3.mp4");
-			}
-			Destroy(GameObject.Find("video3(Clone)"));
-		}
-		//Launch video 4, destroy signalling gameobject
-		if(GameObject.Find("video4(Clone)") != null){
-			int signal = (int) GameObject.Find("video4(Clone)").transform.position.x;
-			if(signal == 0 || signal == id){
-				srcMedia.Load ("video4.mp4");
-			}
-			Destroy(GameObject.Find("video4(Clone)"));
-		}
+
 	}
 
 }

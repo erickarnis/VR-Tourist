@@ -3,42 +3,29 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class NetworkedPlayer : Photon.MonoBehaviour{
-	public GameObject avatar;
-
-	//Responsible for avatar movements on the plane
-	public Transform playerGlobal;
-	//Responsible for headmovements
-	public Transform playerLocal;
-	public Transform playerRotation;
 
 	public MediaPlayerCtrl srcMedia;
 
 	void Start (){
 
-		//this ensures that only you can control your player
-		if (photonView.isMine){
-			playerGlobal = GameObject.Find("OVRPlayerController").transform;
-			playerLocal = playerGlobal.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor/Pivot");
-			playerRotation = playerGlobal.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor");
-
-			this.transform.SetParent(playerLocal);
-			this.transform.localPosition = Vector3.zero;
-			this.transform.rotation = playerRotation.transform.rotation;
-
-			//Throws null
-			//GetComponent<PhotonVoiceRecorder> ().enabled = true;
-		}
 	}
 		void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
 			//This sends your data to the other players in the same room
 			if (stream.isWriting){
+				stream.SendNext(PhotonNetwork.playerName.ToString());
+				Debug.Log(PhotonNetwork.playerName.ToString());
 				stream.SendNext(srcMedia.GetSeekPosition());
+				Debug.Log(srcMedia.GetSeekPosition());
 				stream.SendNext(srcMedia.GetDuration());
-
+				Debug.Log(srcMedia.GetDuration());
+				stream.SendNext(srcMedia.current_video);
+				Debug.Log(srcMedia.current_video);
 			}
 			//This recieves information from other players in the same room
 			else{
-
+				int a = (int)stream.ReceiveNext();
+				int b = (int)stream.ReceiveNext();
+				string c = (string)stream.ReceiveNext();
 			}
 		}
 /*

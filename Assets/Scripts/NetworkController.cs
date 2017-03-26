@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NetworkController : MonoBehaviour
 {
-	string _room = "VR Urban Exploring";
+	string _room = "VR Tourism";
 
 	void Start(){
 		PhotonNetwork.ConnectUsingSettings("0.1");
