@@ -16,8 +16,9 @@ public unsafe class MediaPlayerCtrl : MonoBehaviour {
 public class MediaPlayerCtrl : MonoBehaviour
 {
 #endif
-
+    //Added by Eric Karnis to help with VR Tourism, not original
     public string current_video;
+    public GameObject video_player_controls;
 
     public string m_strFileName;
     public GameObject[] m_TargetMaterial = null;
@@ -1824,6 +1825,8 @@ public class MediaPlayerCtrl : MonoBehaviour
 		//AVDictionary *opts = null;
 		//int ret = ffmpeg.av_dict_set(&opts, "rtsp_transport", "tcp", 0);
 
+    //This is what throws the exception when a video is not found on the device
+    //Hopefully you have better luck than I do
 		AVFormatContext* ppFomatContext = null;
 		if (ffmpeg.avformat_open_input(&ppFomatContext, strFileName, null, null) != 0)
 		{
@@ -1831,6 +1834,58 @@ public class MediaPlayerCtrl : MonoBehaviour
 			m_CurrentState = MEDIAPLAYER_STATE.ERROR;
 			throw new ApplicationException(@"Could not open file" + strFileName);
 		}
+
+    /*Exception catching method 1
+    VideoLoadError can't access video_player_controls or update load_error
+    AVFormatContext* ppFomatContext = null;
+		if (ffmpeg.avformat_open_input(&ppFomatContext, strFileName, null, null) != 0)
+		{
+			pFormatContext = null;
+			m_CurrentState = MEDIAPLAYER_STATE.ERROR;
+      MenuScript menu_script = new MenuScript();
+      menu_script.VideoLoadError();
+		}
+    */
+    /*Exception catching method 2
+    Doesn't change the value of load_error
+    AVFormatContext* ppFomatContext = null;
+   if (ffmpeg.avformat_open_input(&ppFomatContext, strFileName, null, null) != 0)
+   {
+     pFormatContext = null;
+     m_CurrentState = MEDIAPLAYER_STATE.ERROR;
+      MenuScript menu_script = new MenuScript();
+      menu_script.load_error = true;
+   }
+    */
+    /*Exception catching method 3
+    Causes unity to crash
+    AVFormatContext* ppFomatContext = null;
+    try{
+     if (ffmpeg.avformat_open_input(&ppFomatContext, strFileName, null, null) != 0)
+     {
+       pFormatContext = null;
+       m_CurrentState = MEDIAPLAYER_STATE.ERROR;
+       throw new ApplicationException(@"Could not open file" + strFileName);
+     }
+   }catch(System.Exception e){
+   //Do stuff
+  }
+    */
+    /*Exception catching method 4
+    Causes unity to crash
+    AVFormatContext* ppFomatContext = null;
+    if (ffmpeg.avformat_open_input(&ppFomatContext, strFileName, null, null) != 0)
+    {
+     pFormatContext = null;
+     m_CurrentState = MEDIAPLAYER_STATE.ERROR;
+     video_player_controls1.transform.localScale = new Vector3(1,1,1);
+     status_text.text = " Can't find Video ";
+     throw new ApplicationException(@"Could not open file" + strFileName);
+    }
+    */
+
+    //video_player_controls.transform.localScale = new Vector3(1,1,1);
+
 
 		//ffmpeg.av_dict_free(&opts);
 
