@@ -2,6 +2,9 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+//This file contains functions that send and recieve streams of data to other
+//players, including the tour leader. Start here if you want to implement
+//video time monitoring
 public class NetworkedPlayer : Photon.MonoBehaviour{
 
 	public MediaPlayerCtrl srcMedia;

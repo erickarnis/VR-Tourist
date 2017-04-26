@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Called by the previous message when it is instantiated. The videomessage should
+//probably be done like this for performance reasons but it's not urgent
 public class PreviousController : MonoBehaviour {
 
 	void Start () {

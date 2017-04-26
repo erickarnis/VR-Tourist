@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//From an old project, but could be useful
 public class NextController : MonoBehaviour {
 
 	void Start () {

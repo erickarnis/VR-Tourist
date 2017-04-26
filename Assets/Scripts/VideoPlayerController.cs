@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//From an old project. These functions allow you to play the videos locally only
 public class VideoPlayerController : MonoBehaviour {
 	public GameObject sphere, next, previous;
 
